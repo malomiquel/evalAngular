@@ -1,0 +1,6 @@
+<div>
+  <h1>Liste des statistiques</h1>
+  <div *ngFor="let stat of statistiqueService.tabStatistique">
+    <app-statistique [statistique]="stat" (callDeleteStatistique)="deleteStatistique(stat)"></app-statistique>
+  </div>
+</div>
