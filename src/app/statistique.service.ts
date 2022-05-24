@@ -24,7 +24,7 @@ export class StatistiqueService {
     titre: 'Statistique 3',
     valeur: '100M',
   };
-
+  
   constructor() {
     setTimeout(() => {
       this.tabStatistique.push(this.nouvelleStatistic);

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Statistique } from '../models/statistique';
 
 @Component({
@@ -8,10 +8,15 @@ import { Statistique } from '../models/statistique';
 })
 export class StatistiqueComponent implements OnInit {
   @Input() statistique: Statistique | undefined;
+  @Output() callDeleteStatistique: EventEmitter<void> = new EventEmitter();
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  callDelete() {
+    this.callDeleteStatistique.emit();
   }
 
 }
