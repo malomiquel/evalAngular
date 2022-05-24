@@ -1,6 +1,7 @@
 <div>
   <h1>Liste des statistiques</h1>
-  <app-statistique [statistique]="statistique1"></app-statistique>
-  <app-statistique [statistique]="statistique2"></app-statistique>
+  <div *ngFor="let stat of tabStatistique">
+    <app-statistique [statistique]="stat"></app-statistique>
+  </div>
 </div>
 <router-outlet></router-outlet>
