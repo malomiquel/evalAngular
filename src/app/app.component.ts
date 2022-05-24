@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { Statistique } from './models/statistique';
+import { StatistiqueService } from './statistique.service';
+
 
 @Component({
   selector: 'app-root',
@@ -7,28 +8,10 @@ import { Statistique } from './models/statistique';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  tabStatistique: Statistique[] = [
-    {
-      identifiant: 'stat1',
-      titre: 'Statistique 1',
-      valeur: '20M',
-    },
-    {
-      identifiant: 'stat2',
-      titre: 'Statistique 2',
-      valeur: '50M',
-    },
-  ];
+  
+  public statistiqueService: StatistiqueService;
 
-  nouvelleStatistic: Statistique = {
-    identifiant: 'stat3',
-    titre: 'Statistique 3',
-    valeur: '100M',
-  };
-
-  constructor() {
-    setTimeout(() => {
-      this.tabStatistique.push(this.nouvelleStatistic);
-    }, 3000);
+  constructor(statistiqueService: StatistiqueService) {
+    this.statistiqueService = statistiqueService;
   }
 }
