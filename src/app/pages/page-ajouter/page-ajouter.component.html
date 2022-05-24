@@ -1,1 +1,38 @@
-<p>page-ajouter works!</p>
+<form (ngSubmit)="addStatistique(formAjout)" #formAjout="ngForm">
+  <div class="form-group mb-3">
+    <label for="name">Nom</label>
+    <input
+      type="text"
+      class="form-control"
+      name="name"
+      placeholder="Nom du produit"
+      [(ngModel)]="identifiant"
+      required
+    />
+  </div>
+  <div class="form-group mb-3">
+    <label for="description">Description</label>
+    <input
+      type="text"
+      class="form-control"
+      name="description"
+      placeholder="Description du produit"
+      [(ngModel)]="titre"
+      required
+    />
+  </div>
+  <div class="form-group mb-3">
+    <label for="price">Prix</label>
+    <input
+      type="number"
+      class="form-control"
+      name="price"
+      placeholder="Prix du produit"
+      [(ngModel)]="valeur"
+      required
+    />
+  </div>
+  <button type="submit" class="btn btn-primary" [disabled]="!formAjout.valid">
+    Ajouter
+  </button>
+</form>

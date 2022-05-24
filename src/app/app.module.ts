@@ -8,6 +8,8 @@ import { StatistiqueComponent } from './statistique/statistique.component';
 import { PageListeComponent } from './pages/page-liste/page-liste.component';
 import { PageAjouterComponent } from './pages/page-ajouter/page-ajouter.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { FormsModule } from '@angular/forms';
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { NavbarComponent } from './navbar/navbar.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    SweetAlert2Module
   ],
   providers: [],
   bootstrap: [AppComponent]
