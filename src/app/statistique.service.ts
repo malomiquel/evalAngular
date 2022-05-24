@@ -1,33 +1,25 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { StatistiqueBack } from './models/apiTypes';
 import { Statistique } from './models/statistique';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class StatistiqueService {
+  tabStatistique: Statistique[] = [];
 
-  tabStatistique: Statistique[] = [
-    {
-      identifiant: 'stat1',
-      titre: 'Statistique 1',
-      valeur: '20M',
-    },
-    {
-      identifiant: 'stat2',
-      titre: 'Statistique 2',
-      valeur: '50M',
-    },
-  ];
-
-  nouvelleStatistic: Statistique = {
-    identifiant: 'stat3',
-    titre: 'Statistique 3',
-    valeur: '100M',
-  };
-  
-  constructor() {
-    setTimeout(() => {
-      this.tabStatistique.push(this.nouvelleStatistic);
-    }, 3000);
+  constructor(private http: HttpClient) {
+    this.http
+      .get<StatistiqueBack[]>('https://stats.naminilamy.fr')
+      .subscribe((res) => {
+        for (const statistique of res) {
+          this.tabStatistique.push({
+            identifiant: statistique.id,
+            titre: statistique.title,
+            valeur: statistique.value,
+          });
+        }
+      });
   }
 }
