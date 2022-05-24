@@ -1,4 +1,6 @@
-<!--afficher titre des deux statistiques-->
-<h2>{{ statistique1.titre }}</h2>
-<h2>{{ statistique2.titre }}</h2>
+<div>
+  <h1>Liste des statistiques</h1>
+  <app-statistique [statistique]="statistique1"></app-statistique>
+  <app-statistique [statistique]="statistique2"></app-statistique>
+</div>
 <router-outlet></router-outlet>
